@@ -1,0 +1,21 @@
+[
+    {
+      "templateId":"JathaNotification",
+      "sewadarCode": "M1234",
+      "sewadarName": "Rohit Wadhwa",
+      "jathaVenue":"Beas",
+      "sewaDepartment":"Accomodation",
+      "sewaStartDate":"10th Dec, 2018",
+      "sewaEndDate":"25th Dec, 2018",
+      "mobileNo":"9902942170"
+
+    },
+    {
+      "templateId":"SewadarAttendance",
+      "sewadarCode": "M1234",
+      "sewadarName": "Rohit Wadhwa",
+      "attendanceDays":"5",
+      "mobileNo":"9902942170"
+    }
+
+]

@@ -1,0 +1,17 @@
+{
+  "templateId":"SewadarAttendance",
+  "sewadars": [
+    {
+    "sewadarCode": "M1234",
+    "sewadarName": "Rohit Wadhwa",
+     "attendanceDays":"5",
+      "mobileNo":"9902942170"
+    },
+    {
+      "sewadarCode": "M4567",
+      "sewadarName": "Kumaresh T",
+      "attendanceDays":"4",
+      "mobileNo":"9902942170"
+    }
+    ]
+}

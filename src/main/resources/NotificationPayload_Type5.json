@@ -1,0 +1,33 @@
+{
+  "template":"JathaNotification",
+  "numberOfRetries":"3",
+  "retryDelay":"30 min",
+  "callback":"endPoint exposed by application for Resultset",
+  "sourceSystem":"",
+  "sewadars": [
+    {
+
+      "sewadarCode": "M1234",
+      "sewadarName": "Rohit Wadhwa",
+      "jathaVenue":"Beas",
+      "sewaDepartment":"Accomodation",
+      "sewaStartDate":"10th Dec, 2018",
+      "sewaEndDate":"25th Dec, 2018",
+      "mobileNo":"9902942170",
+      "status":"",
+      "sendDetail":""
+    },
+    {
+
+      "sewadarCode": "M1234",
+      "sewadarName": "Kumaresh T",
+      "jathaVenue":"Hyderabad",
+      "sewaDepartment":"Langar",
+      "sewaStartDate":"10th Dec, 2018",
+      "sewaEndDate":"25th Dec, 2018",
+      "mobileNo":"9902942170",
+      "status":"",
+      "sendDetail":""
+    }
+  ]
+}
