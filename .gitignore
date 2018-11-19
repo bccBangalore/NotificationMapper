@@ -9,6 +9,8 @@
 #Idea specific files
 .idea/
 
+#iml file
+*.iml
 
 # Package Files #
 *.jar
