@@ -45,6 +45,8 @@ public class NotificationController {
     @RequestMapping(value = "/dynamicMappedNotification", method = RequestMethod.POST)
     public String sendDynamicMappedNotification(Model model, @RequestBody String notificationRequest) {
 
+        notificationService.saveNotificationRequest(notificationRequest);
+
         notificationService.processDynamicMappedNotification(notificationRequest);
 
         return "Success";

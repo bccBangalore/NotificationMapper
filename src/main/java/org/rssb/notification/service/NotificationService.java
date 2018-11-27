@@ -8,9 +8,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import freemarker.template.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.rssb.notification.domain.NotificationTracker;
 import org.rssb.notification.model.SmsRequest;
+import org.rssb.notification.repository.NotificationTrackerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -26,6 +29,9 @@ public class NotificationService {
 
     @Value("${smsNotificationUrl}")
     String smsNotificationUrl;
+
+    @Autowired
+    NotificationTrackerRepository notificationTrackerRepository;
 
     Logger logger = LoggerFactory.getLogger(NotificationService.class);
 
@@ -186,5 +192,19 @@ public class NotificationService {
         configuration.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         configuration.setLogTemplateExceptions(false);
         return configuration;
+    }
+
+    /**
+     * This method saves notificationRequest in database
+     * @param notificationRequest
+     */
+    public void saveNotificationRequest(String notificationRequest)
+    {
+
+        NotificationTracker notificationTracker=new NotificationTracker();
+
+        notificationTracker.setNotificationPayload(notificationRequest);
+
+        notificationTrackerRepository.save(notificationTracker);
     }
 }

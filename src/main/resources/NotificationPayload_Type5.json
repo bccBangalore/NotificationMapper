@@ -1,9 +1,10 @@
 {
-  "template":"JathaNotification",
+  "notificationId":"SMS01Jatha",
+  "template":"Radha Soami ${sewadarName!''},  This is to inform you that Sewa Jatha for ${sewaDepartment} sewa is going to ${jathaVenue}  from ${sewaStartDate} to ${sewaEndDate}. Please submit your name to Sewa Samiti if you're willing to join.",
   "numberOfRetries":"3",
   "retryDelay":"30 min",
   "callback":"endPoint exposed by application for Resultset",
-  "sourceSystem":"",
+  "sourceSystem":"SMS",
   "sewadars": [
     {
 
