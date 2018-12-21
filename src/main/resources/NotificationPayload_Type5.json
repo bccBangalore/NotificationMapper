@@ -1,22 +1,25 @@
 {
   "notificationId":"SMS01Jatha",
   "template":"Radha Soami ${sewadarName!''},  This is to inform you that Sewa Jatha for ${sewaDepartment} sewa is going to ${jathaVenue}  from ${sewaStartDate} to ${sewaEndDate}. Please submit your name to Sewa Samiti if you're willing to join.",
-  "numberOfRetries":"3",
-  "retryDelay":"30 min",
+  "numberOfRetries":3,
+  "retryDelay":60,
   "callback":"endPoint exposed by application for Resultset",
   "sourceSystem":"SMS",
+  "callBackStatus":"initiated",
   "sewadars": [
     {
 
       "sewadarCode": "M1234",
-      "sewadarName": "Rohit Wadhwa",
+      "sewadarName": "Mohit Wadhwa",
       "jathaVenue":"Beas",
       "sewaDepartment":"Accomodation",
       "sewaStartDate":"10th Dec, 2018",
       "sewaEndDate":"25th Dec, 2018",
       "mobileNo":"9902942170",
       "status":"",
-      "sendDetail":""
+      "sendDetail":[
+      ],
+      "retryProcesssed":0
     },
     {
 
@@ -26,9 +29,11 @@
       "sewaDepartment":"Langar",
       "sewaStartDate":"10th Dec, 2018",
       "sewaEndDate":"25th Dec, 2018",
-      "mobileNo":"9902942170",
+      "mobileNo":"8197555088",
       "status":"",
-      "sendDetail":""
+      "sendDetail":[],
+      "retryProcesssed":0
+
     }
   ]
 }
