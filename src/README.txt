@@ -26,6 +26,8 @@ Track source system
 Cloud URL:
 http://Notification-ELB-380387493.us-east-1.elb.amazonaws.com/mappedNotification
 
+Subscriber/Observer Pattern
+
 Ex Payload:
 {
   "templateId":"JathaNotification",
@@ -52,3 +54,16 @@ Ex Payload:
     }
   ]
 }
+
+1) Tracking retry per sms call along with sendDetail in every call - Done
+2) FreeMarker template Exception Handling fr mandatory fields - Done
+3) Logging                                                    - Done
+4) Error Handling/Error Code Mapping fr front end app         - Done
+5) Code segregation in modules                                - Done
+6) Real Time Bhashsms.com                                     - Pending
+
+7) Real time call testing with SmsNotification                - Done
+8) AWS deployment
+
+--
+Send Exception Back to calling application

@@ -4,6 +4,7 @@ import org.rssb.notification.service.NotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,35 +20,18 @@ public class NotificationController {
 
     @RequestMapping("/ping")
     public String alive() {
-        return "Notification Wrapper is healthy!";
+        return "Notification Mapper is healthy!";
     }
 
+
     @RequestMapping(value = "/notification", method = RequestMethod.POST)
-    public String sendNotification(Model model, @RequestBody String notificationRequest) {
+    public ResponseEntity<String> sendDynamicMappedNotification(Model model, @RequestBody String notificationRequest) {
+
 
         notificationService.processNotification(notificationRequest);
 
-        return "Success";
 
-
-    }
-
-    @RequestMapping(value = "/mappedNotification", method = RequestMethod.POST)
-    public String sendMappedNotification(Model model, @RequestBody String notificationRequest) {
-
-        notificationService.processMappedNotification(notificationRequest);
-
-        return "Success";
-
-
-    }
-
-    @RequestMapping(value = "/dynamicMappedNotification", method = RequestMethod.POST)
-    public String sendDynamicMappedNotification(Model model, @RequestBody String notificationRequest) {
-
-        notificationService.processDynamicMappedNotification(notificationRequest);
-
-        return "Success";
+        return ResponseEntity.ok("Success");
 
 
     }
