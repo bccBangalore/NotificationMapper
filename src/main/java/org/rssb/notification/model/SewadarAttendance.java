@@ -3,9 +3,7 @@ package org.rssb.notification.model;
 public class SewadarAttendance {
     private String sewadarCode;
     private String sewadarName;
-
     private String attendanceDays;
-
     private String mobileNo;
 
     public String getSewadarCode() {

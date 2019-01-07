@@ -23,17 +23,10 @@ public class NotificationController {
         return "Notification Mapper is healthy!";
     }
 
-
     @RequestMapping(value = "/notification", method = RequestMethod.POST)
     public ResponseEntity<String> sendDynamicMappedNotification(Model model, @RequestBody String notificationRequest) {
-
-
         notificationService.processNotification(notificationRequest);
-
-
         return ResponseEntity.ok("Success");
-
-
     }
 
 }
