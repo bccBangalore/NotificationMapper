@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TemplateResolver {
   private static final char SINGLE_QUOTE_CHAR = "'".charAt(0),
       DOLLAR_SIGN = '$',
@@ -81,17 +83,19 @@ public class TemplateResolver {
             sb.append(values.get(placeholder));
           } else {
             missingPlaceholders.add(placeholder);
-            sb.append(array, index, seperator + 1);
+            sb.append(array, index, seperator + 1 - index);
           }
           index = seperator + 1;
         } else {
           // seperator now is an Exclamation mark. find if value exists in map
           if (values.containsKey(placeholder)) {
             sb.append(values.get(placeholder));
+            index = getNextIndexOfChar(array, CLOSING_BRACE, seperator) + 1;
+
           } else {
             // find default value
             if (seperator < length - 1 && array[seperator + 1] == SINGLE_QUOTE_CHAR) {
-              int valueBegin = seperator + 1;
+              int valueBegin = seperator + 2;
               int valueEnd = -1;
               valueEnd = getNextIndexOfChar(array, SINGLE_QUOTE_CHAR, valueBegin + 1);
               if (valueEnd == -1) {
@@ -100,8 +104,10 @@ public class TemplateResolver {
                                                     + seperator);
               }
               String value = template.substring(valueBegin, valueEnd);
+              values.put(placeholder, value);
               sb.append(value);
-              index = valueEnd + 1;
+              // skipping closing brace;
+              index = valueEnd + 2;
             } else {
               missingPlaceholders.add(placeholder);
               throw new IllegalStateException("error at missing single quote at location "
@@ -109,6 +115,9 @@ public class TemplateResolver {
             }
           }
         }
+      } else {
+        sb.append(array[index]);
+        index++;
       }
     }
     if (index < length) {
@@ -116,27 +125,4 @@ public class TemplateResolver {
     }
     return sb;
   }
-
-//  public String replace(String str) {
-//    StringBuilder sb = new StringBuilder();
-//    char[] strArray = str.toCharArray();
-//    int i = 0;
-//    while (i < length - 1) {
-//      if (strArray[i] == '$' && strArray[i + 1] == '{') {
-//        i = i + 2;
-//        int begin = i;
-//        while (strArray[i] != '}') {
-//          ++i;
-//        }
-//        sb.append(map.get(str.substring(begin, i++)));
-//      } else {
-//        sb.append(strArray[i]);
-//        ++i;
-//      }
-//    }
-//    if (i < length) {
-//      sb.append(strArray[i]);
-//    }
-//    return sb.toString();
-//  }
 }
